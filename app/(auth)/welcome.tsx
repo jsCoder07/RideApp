@@ -52,15 +52,17 @@ const Welcome = () => {
           </View>
         ))}
       </Swiper>
-      <AsButton
-        title={islastslide ? "Get Started" : "Next"}
-        className="w-11/12 mt-10"
-        onPress={() =>
-          islastslide
-            ? router.replace("/(auth)/sign-up")
-            : swiperRef.current?.scrollBy(1)
-        }
-      />
+      <View className="w-11/12">
+        <AsButton
+          title={islastslide ? "Get Started" : "Next"}
+          className="mt-10"
+          onPress={() =>
+            islastslide
+              ? router.replace("/(auth)/sign-up")
+              : swiperRef.current?.scrollBy(1)
+          }
+        />
+      </View>
     </SafeAreaView>
   );
 };

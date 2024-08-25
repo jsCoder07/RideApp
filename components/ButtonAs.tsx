@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { ButtonProps } from "@/types/type";
+
 const getbgVariantStyle = (variant: ButtonProps["bgVariant"]) => {
   switch (variant) {
     case "secondary":
@@ -26,6 +27,8 @@ const getTextVariantStyle = (variant: ButtonProps["textVariant"]) => {
       return "text-green-100";
     case "primary":
       return "text-black";
+    case "primary-smaller":
+      return "text-black text-base font-semibold";
     default:
       return "text-white";
   }
@@ -43,10 +46,11 @@ const AsButton = ({
   return (
     <TouchableOpacity
       onPress={onPress}
-      className={`w-[90%] rounded-full flex flex-row p-2 items-center justify-center mb-2 shadow-md shadow-neutral-400/75 ${getbgVariantStyle(bgVariant)} ${className}`}
+      className={`w-full rounded-full flex flex-row p-2 items-center justify-center mb-2 shadow-md shadow-neutral-400/75 
+        ${getbgVariantStyle(bgVariant)} ${className}`}
     >
       {IconLeft && <IconLeft />}
-      <Text className={`text-lg font-bold ${getTextVariantStyle(textVariant)}`}>
+      <Text className={`text-lg ${getTextVariantStyle(textVariant)}`}>
         {title}
       </Text>
       {IconRight && <IconRight />}
